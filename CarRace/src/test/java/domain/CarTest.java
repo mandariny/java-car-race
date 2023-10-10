@@ -6,6 +6,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import util.RandomUtil;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class CarTest {
     Car car;
 
@@ -19,7 +21,7 @@ public class CarTest {
         car.play();
 
         // then
-        Assertions.assertThat(car.getStatus()).isEqualTo(4);
+        assertThat(car.getStatus()).isEqualTo(4);
     }
 
     @Test
@@ -32,6 +34,6 @@ public class CarTest {
         car.play();
 
         // then
-        Assertions.assertThat(car.getStatus()).isEqualTo(0);
+        assertThat(car.getStatus()).isEqualTo(0);
     }
 }
