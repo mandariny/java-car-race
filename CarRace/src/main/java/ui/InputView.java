@@ -1,5 +1,8 @@
 package ui;
 
+import domain.Cars;
+import service.CarRaceGame;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -11,6 +14,13 @@ public class InputView {
 
         System.out.println("시도할 횟수는 몇 회인가요?");
         int gameCnt = s.nextInt();
+
+        Cars cars = new Cars();
+        CarRaceGame carRaceGame = new CarRaceGame(cars);
+        carRaceGame.makeCarList(carNames);
+
+        System.out.println("실행 결과\n");
+        carRaceGame.playGames(gameCnt);
 
         s.close();
     }

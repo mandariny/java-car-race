@@ -20,6 +20,8 @@ public class Car {
         if(randStatus >= STATUS_STANDARD) this.status += randStatus;
     }
 
+    public String getCarName(){ return this.carName; }
+
     public int getStatus(){
         return this.status;
     }
