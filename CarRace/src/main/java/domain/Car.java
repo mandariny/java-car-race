@@ -7,6 +7,7 @@ public class Car {
     private RandomUtil rand;
     private int status;
     private final int STATUS_STANDARD = 4;
+    private StringBuilder sb = new StringBuilder();
 
 
     public Car(String carName, RandomUtil rand) {
@@ -23,4 +24,11 @@ public class Car {
         return this.status;
     }
 
+    public String getProgress(){
+        sb.setLength(0);
+        sb.append(carName).append(" : ");
+        for(int i=0; i<this.status; i++) sb.append("-");
+        sb.append("\n");
+        return sb.toString();
+    }
 }

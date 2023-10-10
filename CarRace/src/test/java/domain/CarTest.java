@@ -36,4 +36,17 @@ public class CarTest {
         // then
         assertThat(car.getStatus()).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("자동차 출력")
+    void 자동차_출력시_이름도_출력(){
+        // given
+        car = new Car("pobi", () -> 4);
+
+        // when
+        car.play();
+
+        // then
+        assertThat(car.getProgress()).isEqualTo("pobi : ----\n");
+    }
 }
