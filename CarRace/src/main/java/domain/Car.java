@@ -1,9 +1,26 @@
 package domain;
 
-public class Car {
-    String carName;
+import util.RandomUtil;
 
-    public Car(String carName) {
+public class Car {
+    private String carName;
+    private RandomUtil rand;
+    private int status;
+    private final int STATUS_STANDARD = 4;
+
+
+    public Car(String carName, RandomUtil rand) {
         this.carName = carName;
+        this.rand = rand;
     }
+
+    public void play(){
+        int randStatus = rand.generateRandomNum();
+        if(randStatus >= STATUS_STANDARD) this.status += randStatus;
+    }
+
+    public int getStatus(){
+        return this.status;
+    }
+
 }

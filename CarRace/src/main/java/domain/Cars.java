@@ -14,7 +14,7 @@ public class Cars {
     public void inserCar(String carName){
         if(!isRightCarNameLength(carName)) return;
 
-        Car car = new Car(carName);
+        Car car = new Car(carName, ()-> (int)(Math.random() * 10));
         carList.add(car);
     }
 
