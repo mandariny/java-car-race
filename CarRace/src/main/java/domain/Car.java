@@ -5,13 +5,13 @@ import util.RandomUtil;
 public class Car {
 
     private static final int STATUS_STANDARD = 4;
-    private String carName;
+    private CarName carName;
     private RandomUtil rand;
     private Position position;
     private StringBuilder sb = new StringBuilder();
 
     public Car(String carName, RandomUtil rand) {
-        this.carName = carName;
+        this.carName = new CarName(carName);
         this.position = new Position();
         this.rand = rand;
     }
@@ -21,11 +21,11 @@ public class Car {
         if(randStatus >= STATUS_STANDARD) position.increase();
     }
 
-    public String getCarName(){ return this.carName; }
+    public String getCarName(){ return this.carName.getCarName(); }
 
     public String getProgress(){
         sb.setLength(0);
-        sb.append(carName).append(" : ");
+        sb.append(carName.getCarName()).append(" : ");
         sb.append(position.getPositionString());
         sb.append("\n");
         return sb.toString();
