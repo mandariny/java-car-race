@@ -1,5 +1,6 @@
 package service;
 
+import domain.Car;
 import domain.Cars;
 import ui.ResultView;
 
@@ -24,11 +25,10 @@ public class CarRaceGame {
             resultView.printProgress(result);
         }
 
-        resultView.printWinners(cars.getWinners());
+        printWinners(cars.getWinners());
     }
 
-    public void getWinners(){
-        ArrayList<String> winners = cars.getWinners();
+    public void printWinners(ArrayList<Car> winners){
         resultView.printWinners(winners);
     }
 }

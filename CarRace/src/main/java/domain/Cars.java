@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+    private static final int MAX_LENTH = 5;
+    private static final int RANDOM_RANGE = 10;
     private List<Car> carList;
-    private final int MAX_LENTH = 5;
+
     private StringBuilder sb = new StringBuilder();
 
     public Cars() {
@@ -15,7 +17,7 @@ public class Cars {
     public void insertCar(String carName){
         if(!isRightCarNameLength(carName)) return;
 
-        Car car = new Car(carName, ()-> (int)(Math.random() * 10));
+        Car car = new Car(carName, ()-> (int)(Math.random() * RANDOM_RANGE));
         carList.add(car);
     }
 
@@ -28,23 +30,24 @@ public class Cars {
         return true;
     }
 
-    public ArrayList<String> getWinners() {
-        ArrayList<String> winners = new ArrayList<>();
-        int maxStatus = 0;
+    public ArrayList<Car> getWinners() {
+        ArrayList<Car> winners = new ArrayList<>();
+        Position maxPosition = getMaxPosition();
 
         for(Car car : carList){
-            int carStatus = car.getStatus();
-            if(maxStatus > carStatus) continue;
-            if(maxStatus == carStatus){
-                winners.add(car.getCarName());
-                continue;
-            }
-            maxStatus = carStatus;
-            winners.clear();
-            winners.add(car.getCarName());
+            if(car.isSame(maxPosition)) winners.add(car);
         }
         return winners;
     }
+
+    private Position getMaxPosition() {
+        Position maxPosition = new Position();
+        for(Car car : carList){
+            maxPosition = car.getMaxPosition(maxPosition);
+        }
+        return maxPosition;
+    }
+
 
     public String playGames() {
         sb.setLength(0);

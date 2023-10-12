@@ -21,7 +21,7 @@ public class CarTest {
         car.play();
 
         // then
-        assertThat(car.getStatus()).isEqualTo(4);
+        assertThat(car.getPosition()).isEqualTo(new Position(1));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class CarTest {
         car.play();
 
         // then
-        assertThat(car.getStatus()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 
     @Test
@@ -47,6 +47,6 @@ public class CarTest {
         car.play();
 
         // then
-        assertThat(car.getProgress()).isEqualTo("pobi : ----\n");
+        assertThat(car.getProgress()).isEqualTo("pobi : -\n");
     }
 }
